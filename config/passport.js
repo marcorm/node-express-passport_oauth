@@ -86,27 +86,28 @@ module.exports = function(passport) {
                         if (!user.picture || user.picture === '') user.picture = profile.photos[0].value;
                         user.google.picture = profile.photos[0].value;
                       }
+                      user.loginCount ++;
                       user.save(function(err) {
                         if (err) throw err;
                         return done(null, user);
                       });
-                    } else {
-                      var newUser = new User();
-                      newUser.provider = "google";
-                      newUser.google.id    = profile.id;
-                      newUser.google.token = accessToken;
-                      newUser.google.name  = profile.displayName;
-                      if (profile.photos && profile.photos[0] && profile.photos[0].value) {
-                        newUser.picture  = profile.photos[0].value;
-                        newUser.google.picture = profile.photos[0].value;
-                      } 
-                      newUser.email = commonMail;
-                      newUser.save(function(err) {
-                        if (err) throw err;
-                        return done(null, newUser);
-                      });
-                    }
-                  });
+                  } else {
+                    var newUser = new User();
+                    newUser.provider = "google";
+                    newUser.google.id    = profile.id;
+                    newUser.google.token = accessToken;
+                    newUser.google.name  = profile.displayName;
+                    if (profile.photos && profile.photos[0] && profile.photos[0].value) {
+                      newUser.picture  = profile.photos[0].value;
+                      newUser.google.picture = profile.photos[0].value;
+                    } 
+                    newUser.email = commonMail;
+                    newUser.save(function(err) {
+                      if (err) throw err;
+                      return done(null, newUser);
+                    });
+                  }
+                });
               } else {
                   //USER HAS NO PUBLIC GOOGLE MAIL
                   var newUser = new User();
@@ -178,26 +179,26 @@ module.exports = function(passport) {
                       user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
                       if (!user.picture || user.picture === '') user.picture = 'https://graph.facebook.com/'+profile.id+'/picture?height=200&type=normal&width=200';
                       user.facebook.picture = 'https://graph.facebook.com/'+profile.id+'/picture?height=200&type=normal&width=200';
-                      
+                      user.loginCount ++;
                       user.save(function(err) {
                         if (err) throw err;
                         return done(null, user);
                       });
-                    } else {
-                      var newUser = new User();
-                      newUser.provider = "facebook";
-                      newUser.facebook.id    = profile.id;
-                      newUser.facebook.token = accessToken;
-                      newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-                      newUser.facebook.picture = 'https://graph.facebook.com/'+profile.id+'/picture?height=200&type=normal&width=200';
-                      newUser.picture = 'https://graph.facebook.com/'+profile.id+'/picture?height=200&type=normal&width=200';
-                      newUser.email = commonMail;
-                      newUser.save(function(err) {
-                        if (err) throw err;
-                        return done(null, newUser);
-                      });
-                    }
-                  });
+                  } else {
+                    var newUser = new User();
+                    newUser.provider = "facebook";
+                    newUser.facebook.id    = profile.id;
+                    newUser.facebook.token = accessToken;
+                    newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+                    newUser.facebook.picture = 'https://graph.facebook.com/'+profile.id+'/picture?height=200&type=normal&width=200';
+                    newUser.picture = 'https://graph.facebook.com/'+profile.id+'/picture?height=200&type=normal&width=200';
+                    newUser.email = commonMail;
+                    newUser.save(function(err) {
+                      if (err) throw err;
+                      return done(null, newUser);
+                    });
+                  }
+                });
               } else {
                   //USER HAS NO PUBLIC GOOGLE MAIL
                   var newUser = new User();
