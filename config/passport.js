@@ -152,7 +152,7 @@ module.exports = function(passport) {
 
         } else if (!req.user) {
           //USER IS NOT LOGGED IN
-          User.findOne({'google.id' : profile.id}, function(err, user) {
+          User.findOne({'facebook.id' : profile.id}, function(err, user) {
             if (err) return done(err);
             if (user) {
               //LOGIN
