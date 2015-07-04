@@ -13,7 +13,7 @@ var errorHandler = require('./BE/middleware/errorHandler').errorHandler;
 
 var routes = require('./BE/routes/index');
 var authRoutes = require('./BE/routes/auth');
-
+var resourceRoutes = require('./BE/routes/resource');
 
 var app = express();
 
@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // required for passport
 app.use(session({
-  secret: 'frasesegrettissimadelnuovoprogettochiamatoboredomdimarcoeandreaeandrea',
+  secret: 'secret cat under the table',
   resave: false,
   saveUninitialized: true
 }));
@@ -46,6 +46,7 @@ app.use(passport.session()); // persistent login sessions
 
 app.use('/', routes);
 app.use('/auth', authRoutes);
+app.use('/protected/api', resourceRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

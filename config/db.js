@@ -1,5 +1,5 @@
 module.exports = {
 
-	url : process.env.BOREDOM_MONGOLAB_URI
+	url : process.env.NODE_EXPRESS_PASSPORT_MONGOLAB_URI
 
 }

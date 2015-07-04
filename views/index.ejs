@@ -6,10 +6,20 @@
 	<body>
 		<h1><%= title %></h1>
 		<p>Welcome to <%= title %></p>
+		<p><a href="/protected/api">This is a protected API</a></p>
+
 		<% if (!user) { %>
-			<a href="/auth/google">google</a>
-		<% } else { %>
+			<a href="/auth/google"><img src="images/google.png" alt="google auth"></a>
+			<a href="/auth/facebook"><img src="images/facebook.png" alt="facebook auth"></a>
+		<% } else if (user) { %>
+			<div class="user-profile">
+				<img src='<%= user.picture %>'></img>
+				<p><%= user.email %></p>
+				<p>logged in <%= user.loginCount %> times</p>
+				<p>you're currently logged in with <b><%= user.provider %></b></p>
+			</div>
 			<a href="/auth/logout">logout</a>
 		<% } %>
+
 	</body>
 </html>
