@@ -1,5 +1,5 @@
 *.log
-tmp/
-node_modules/
+tmp
+node_modules
 newrelic.js
 .DS_Store
