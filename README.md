@@ -19,4 +19,4 @@ NEP_MONGOLAB_URI            | *mongodb://{dbuser}:{dbpassword}@{dbaddress}:{dbpo
 npm install
 npm start
 ```
-visit localhost:3000
+visit **http://localhost:3000** in you browser
