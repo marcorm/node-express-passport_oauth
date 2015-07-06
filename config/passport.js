@@ -83,8 +83,8 @@ module.exports = function(passport) {
                       user.google.token = accessToken;
                       user.google.name  = profile.displayName;
                       if (profile.photos && profile.photos[0] && profile.photos[0].value) {
-                        if (!user.picture || user.picture === '') user.picture = profile.photos[0].value;
-                        user.google.picture = profile.photos[0].value;
+                        if (!user.picture || user.picture === '') user.picture = profile.photos[0].value.split('?')[0]; //get rid of ?sz=50
+                        user.google.picture = profile.photos[0].value.split('?')[0];
                       }
                       user.loginCount ++;
                       user.save(function(err) {
@@ -98,8 +98,8 @@ module.exports = function(passport) {
                     newUser.google.token = accessToken;
                     newUser.google.name  = profile.displayName;
                     if (profile.photos && profile.photos[0] && profile.photos[0].value) {
-                      newUser.picture  = profile.photos[0].value;
-                      newUser.google.picture = profile.photos[0].value;
+                      newUser.picture  = profile.photos[0].value.split('?')[0];
+                      newUser.google.picture = profile.photos[0].value.split('?')[0];
                     } 
                     newUser.email = commonMail;
                     newUser.save(function(err) {
@@ -116,8 +116,8 @@ module.exports = function(passport) {
                   newUser.google.token = accessToken;
                   newUser.google.name  = profile.displayName;
                   if (profile.photos && profile.photos[0] && profile.photos[0].value) {
-                    newUser.picture  = profile.photos[0].value;
-                    newUser.google.picture = profile.photos[0].value;
+                    newUser.picture  = profile.photos[0].value.split('?')[0];
+                    newUser.google.picture = profile.photos[0].value.split('?')[0];
                   }
                   newUser.save(function(err) {
                     if (err) throw err;
