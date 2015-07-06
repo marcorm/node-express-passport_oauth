@@ -1,7 +1,7 @@
 # node-express-passport_oauth
 A simple implementation of Google and Facebook Oauth with node, express4, passportjs and mongodb (mongoose)
 
-### installation guide
+### Installation
 To try this project on you local machine you must set some environment variables:
 
 Env Variable  | Value
@@ -14,12 +14,15 @@ NEP_GOOGLE_CLIENT_SECRET    | *your Google secret*
 NEP_GOOGLE_CALLBACK         | *{your_address:port}/auth/google/callback*
 NEP_MONGOLAB_URI            | *mongodb://{dbuser}:{dbpassword}@{dbaddress}:{dbport}/{dbname}*
 
-### usage guide
+### Getting started
 ```
 npm install
 npm start
 ```
 visit **http://localhost:3000** in you browser
 
-### demo
+### Demo
 https://node-express-passport.herokuapp.com/
+
+### Roadmap
+* add roles with connect-roles
