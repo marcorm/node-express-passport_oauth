@@ -16,6 +16,7 @@ NODE_EXPRESS_PASSPORT_MONGOLAB_URI            | *mongodb://{dbuser}:{dbpassword}
 
 ### usage guide
 ```
+npm install
 npm start
 ```
 visit localhost:3000
