@@ -2,7 +2,7 @@
 module.exports = {
 
 	'facebookAuth' : {
-		'clientID' 		: process.env.NEP_FACEBOOK_CLIENT_ID, // your App ID
+		'clientID'		: process.env.NEP_FACEBOOK_CLIENT_ID, // your App ID
 		'clientSecret' 	: process.env.NEP_FACEBOOK_CLIENT_SECRET, // your App Secret
 		'callbackURL' 	: process.env.NEP_FACEBOOK_CALLBACK
 	},
