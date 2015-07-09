@@ -21,11 +21,11 @@ npm start
 ```
 visit **http://localhost:3000** in you browser
 
-### Google and Facebook apps
-To create an app (needed) on Facebook go to: https://developers.facebook.com/apps/  
-To create an app (needed) on Google go to: https://console.developers.google.com/project  
+### Google and Facebook apps (required)
+To create an app on Facebook go to: https://developers.facebook.com/apps/  
+To create an app on Google go to: https://console.developers.google.com/project  
 
-### MongoDB URI
+### MongoDB URI (required)
 I use mongolab for my mongodb instance. It's a great service, easy to use. https://mongolab.com/  
 You can use what you want, either a local instance of mongodb.  
 
