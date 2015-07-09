@@ -21,6 +21,14 @@ npm start
 ```
 visit **http://localhost:3000** in you browser
 
+### Google and Facebook apps
+To create an app (needed) on Facebook go to: https://developers.facebook.com/apps/  
+To create an app (needed) on Google go to: https://console.developers.google.com/project  
+
+### MongoDB URI
+I use mongolab for my mongodb instance. It's a great service, easy to use. https://mongolab.com/  
+You can use what you want, either a local instance of mongodb.  
+
 ### Demo
 https://node-express-passport.herokuapp.com/
 
